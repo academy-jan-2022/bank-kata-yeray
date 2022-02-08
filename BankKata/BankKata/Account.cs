@@ -11,7 +11,7 @@ public class Account
         repository.Add(amount);
 
     public void Withdraw(int amount) =>
-        throw new NotImplementedException();
+        repository.Add(-amount);
 
     public void PrintStatement() =>
         throw new NotImplementedException();
