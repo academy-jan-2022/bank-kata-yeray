@@ -18,6 +18,7 @@ public class Balance
             result.Add(renderer(transaction, balance));
         }
 
+        result.Reverse();
         return result;
     }
 
