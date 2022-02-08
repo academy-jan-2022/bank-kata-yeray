@@ -31,7 +31,7 @@ Date       || Amount || Balance
     {
         using var stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
-        var account = new Account();
+        var account = new Account(new TransactionRepository());
         account.Deposit(1000);
         account.Deposit(2000);
         account.Withdraw(500);
