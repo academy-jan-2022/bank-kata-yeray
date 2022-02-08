@@ -13,4 +13,13 @@ public class AccountShould
         account.Deposit(1000);
         repoMock.Verify(repo => repo.Add(1000), Times.Once);
     }
+
+    [Fact(DisplayName = "withdraws an amount")]
+    public void Test2()
+    {
+        var repoMock = new Mock<ITransactionRepository>();
+        var account = new Account(repoMock.Object);
+        account.Withdraw(1000);
+        repoMock.Verify(repo => repo.Add(-1000), Times.Once);
+    }
 }

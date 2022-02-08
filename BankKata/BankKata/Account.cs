@@ -2,11 +2,13 @@
 
 public class Account
 {
+    private readonly ITransactionRepository repository;
+
     public Account(ITransactionRepository repository) =>
-        throw new NotImplementedException();
+        this.repository = repository;
 
     public void Deposit(int amount) =>
-        throw new NotImplementedException();
+        repository.Add(amount);
 
     public void Withdraw(int amount) =>
         throw new NotImplementedException();
