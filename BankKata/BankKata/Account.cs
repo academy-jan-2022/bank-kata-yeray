@@ -4,7 +4,7 @@ public class Account
 {
     private readonly ITransactionRepository repository;
 
-    public Account(ITransactionRepository repository) =>
+    public Account(ITransactionRepository repository, IUserInterface userInterfaceObject) =>
         this.repository = repository;
 
     public void Deposit(int amount) =>
