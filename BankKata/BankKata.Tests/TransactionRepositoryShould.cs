@@ -16,8 +16,11 @@ public class TransactionRepositoryShould
         timeProviderMock.Setup(tp => tp.Now()).Returns(expectedDate);
         ITransactionRepository repository = new TransactionRepository(timeProviderMock.Object);
         repository.Add(new Money(100));
-        var transactions = repository.GetTransactions();
-        var expected = new List<Transaction> { new(new Money(100), expectedDate) }.AsEnumerable();
-        Assert.Equal(expected, transactions);
+        var balance = repository.GetBalance();
+        var expected = new List<string> { "01/01/2017 ||100 ||100" };
+        var result = balance.Render(
+            (transaction, bal) => $"{transaction.Date:dd/MM/yyyy} ||{transaction.Money.Amount} ||{bal}"
+        );
+        Assert.Equal(expected, result);
     }
 }
