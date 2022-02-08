@@ -8,10 +8,10 @@ public class Account
         this.repository = repository;
 
     public void Deposit(int amount) =>
-        repository.Add(amount);
+        repository.Add(new Money(amount));
 
     public void Withdraw(int amount) =>
-        repository.Add(-amount);
+        repository.Add(new Money(-amount));
 
     public void PrintStatement() =>
         throw new NotImplementedException();

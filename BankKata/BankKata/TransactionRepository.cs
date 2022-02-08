@@ -8,8 +8,8 @@ public class TransactionRepository : ITransactionRepository
     public TransactionRepository(ITimeProvider timeProvider) =>
         this.timeProvider = timeProvider;
 
-    public void Add(int amount) =>
-        transactions.Add(new Transaction(amount, timeProvider.Now()));
+    public void Add(Money money) =>
+        transactions.Add(new Transaction(money, timeProvider.Now()));
 
     public IEnumerable<Transaction> GetTransactions() =>
         transactions;

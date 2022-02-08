@@ -2,6 +2,6 @@ namespace BankKata;
 
 public interface ITransactionRepository
 {
-    void Add(int amount);
+    void Add(Money money);
     IEnumerable<Transaction> GetTransactions();
 }

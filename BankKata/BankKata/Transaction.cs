@@ -1,3 +1,3 @@
 namespace BankKata;
 
-public record Transaction(int Amount, DateTime Date);
+public record Transaction(Money Money, DateTime Date);
